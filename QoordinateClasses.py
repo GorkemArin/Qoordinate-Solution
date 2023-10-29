@@ -2,6 +2,8 @@ from collections import namedtuple
 from math import sqrt
 from copy import deepcopy
 import numpy as np
+from typing import List
+
 Point = namedtuple('Point', 'x y')
 
 class Building:
@@ -35,7 +37,7 @@ class Map:
 
         return matrix
 
-    def __init__(self, teamList: [], buildingList: []):
+    def __init__(self, teamList: List[Team], buildingList: List[Team], mapname: str = ''):
         self.teamList = teamList
         self.buildingList = buildingList
         self.buildingsDistanceMatrix = self.__GetBuildingsDistanceMatrix()

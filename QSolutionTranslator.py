@@ -1,5 +1,5 @@
 from qiskit_optimization.algorithms import MinimumEigenOptimizationResult
-from ClassesTest import Map
+from QMain import Map
 
 def GetListOfOrder(solution: MinimumEigenOptimizationResult, map: Map):
 	buildings = map.GetBuildingNamesList()
