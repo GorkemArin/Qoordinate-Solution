@@ -48,7 +48,6 @@ class QQuadraticProblem:
 
         return quadratic
 
-    #TODO:
     def __SetConstraintsOf(self, mod: QuadraticProgram, binaries):
         for i in range(self.N-1):
             linearRow = {}

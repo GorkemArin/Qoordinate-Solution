@@ -1,0 +1,10 @@
+C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\bin\Debug\Q Solution Visualizer.exe.config
+C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\bin\Debug\Q Solution Visualizer.exe
+C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\bin\Debug\Q Solution Visualizer.pdb
+C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q Solution Visualizer.csproj.AssemblyReference.cache
+C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q_Solution_Visualizer.FormMain.resources
+C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q_Solution_Visualizer.Properties.Resources.resources
+C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q Solution Visualizer.csproj.GenerateResource.cache
+C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q Solution Visualizer.csproj.CoreCompileInputs.cache
+C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q Solution Visualizer.exe
+C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q Solution Visualizer.pdb

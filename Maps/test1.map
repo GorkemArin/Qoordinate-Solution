@@ -6,8 +6,8 @@
     * name: "B" | point: 5, 0 | need: 3
     * name: "C" | point: 20, 4 | need: 4
     * name: "D" | point: 15, 7 | need: 7
- #   * name: "E" | point: 4, 12 | need: 9
- #   * name: "F" | point: 0, 9 | need: 14
+    * name: "E" | point: 4, 12 | need: 9
+    * name: "F" | point: 0, 9 | need: 14
  #   * name: "G" | point: 2, 20 | need: 3
  #   * name: "H" | point: 30, 5 | need: 10
  #   * name: "I" | point: 5, 16 | need: 14
