@@ -4,7 +4,7 @@
 > buildings:
     * name: "A" | point: 12, 12 | need: 20
     * name: "B" | point: 5, 0 | need: 3
-    * name: "C" | point: 20, 4 | need: 4
+    * name: "C" | point: 17, 4 | need: 4
     * name: "D" | point: 15, 7 | need: 7
  #   * name: "E" | point: 4, 12 | need: 9
  #   * name: "F" | point: 0, 9 | need: 14

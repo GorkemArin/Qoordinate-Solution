@@ -46,7 +46,7 @@ namespace Q_Solution_Visualizer.Maps
             return coordinate;
         }
 
-        public double GetNeed()
+        public double GetCapacity()
         {
             return capacity;
         }
