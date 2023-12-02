@@ -18,8 +18,8 @@ def SolveWithNumPyMinimumEigensolver(model: QuadraticProgram):
     solution = eigen_optimizer.solve(model)
     return solution
 
-def BruteForce(map: Map):
-    matrix = map.GetDistanceMatrix(0)
+def BruteForce(map: Map, teamIndex: int = 0):
+    matrix = map.GetDistanceMatrix(teamIndex)
     N = matrix.shape[0]
     perm = list(itertools.permutations(range(1, N)))
     
@@ -49,3 +49,4 @@ def BruteForce(map: Map):
     name_order = [names[i - 1] for i in minorder]
 
     print('min name order:', name_order)
+    return name_order

@@ -59,3 +59,7 @@ class Map:
         '''for b in self.buildingList:
             names.append(b.name)'''
         return names
+    
+    def GetTeamNamesList(self):
+        names = [t.name for t in self.teamList]
+        return names

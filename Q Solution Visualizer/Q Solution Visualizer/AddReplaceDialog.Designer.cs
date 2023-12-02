@@ -53,8 +53,8 @@ namespace Q_Solution_Visualizer
             this.textBoxTeamX = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonAddReplace = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonAddReplace = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxBuilding.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -145,14 +145,14 @@ namespace Q_Solution_Visualizer
             this.textBoxBuildName.Location = new System.Drawing.Point(129, 3);
             this.textBoxBuildName.Name = "textBoxBuildName";
             this.textBoxBuildName.Size = new System.Drawing.Size(133, 22);
-            this.textBoxBuildName.TabIndex = 0;
+            this.textBoxBuildName.TabIndex = 4;
             // 
             // textBoxBuildNeed
             // 
             this.textBoxBuildNeed.Location = new System.Drawing.Point(129, 65);
             this.textBoxBuildNeed.Name = "textBoxBuildNeed";
             this.textBoxBuildNeed.Size = new System.Drawing.Size(56, 22);
-            this.textBoxBuildNeed.TabIndex = 2;
+            this.textBoxBuildNeed.TabIndex = 7;
             // 
             // tableLayoutPanel5
             // 
@@ -175,14 +175,14 @@ namespace Q_Solution_Visualizer
             this.textBoxBuildY.Location = new System.Drawing.Point(80, 3);
             this.textBoxBuildY.Name = "textBoxBuildY";
             this.textBoxBuildY.Size = new System.Drawing.Size(56, 22);
-            this.textBoxBuildY.TabIndex = 2;
+            this.textBoxBuildY.TabIndex = 6;
             // 
             // textBoxBuildX
             // 
             this.textBoxBuildX.Location = new System.Drawing.Point(3, 3);
             this.textBoxBuildX.Name = "textBoxBuildX";
             this.textBoxBuildX.Size = new System.Drawing.Size(56, 22);
-            this.textBoxBuildX.TabIndex = 1;
+            this.textBoxBuildX.TabIndex = 5;
             // 
             // label6
             // 
@@ -202,7 +202,7 @@ namespace Q_Solution_Visualizer
             this.radioButtonBuilding.Location = new System.Drawing.Point(301, 6);
             this.radioButtonBuilding.Name = "radioButtonBuilding";
             this.radioButtonBuilding.Size = new System.Drawing.Size(54, 24);
-            this.radioButtonBuilding.TabIndex = 2;
+            this.radioButtonBuilding.TabIndex = 0;
             this.radioButtonBuilding.Text = "Bina";
             this.radioButtonBuilding.UseVisualStyleBackColor = true;
             this.radioButtonBuilding.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -215,7 +215,7 @@ namespace Q_Solution_Visualizer
             this.radioButtonTeam.Location = new System.Drawing.Point(6, 6);
             this.radioButtonTeam.Name = "radioButtonTeam";
             this.radioButtonTeam.Size = new System.Drawing.Size(53, 24);
-            this.radioButtonTeam.TabIndex = 1;
+            this.radioButtonTeam.TabIndex = 0;
             this.radioButtonTeam.TabStop = true;
             this.radioButtonTeam.Text = "Ekip";
             this.radioButtonTeam.UseVisualStyleBackColor = true;
@@ -287,7 +287,7 @@ namespace Q_Solution_Visualizer
             this.textBoxTeamCap.Location = new System.Drawing.Point(129, 65);
             this.textBoxTeamCap.Name = "textBoxTeamCap";
             this.textBoxTeamCap.Size = new System.Drawing.Size(56, 22);
-            this.textBoxTeamCap.TabIndex = 2;
+            this.textBoxTeamCap.TabIndex = 3;
             // 
             // tableLayoutPanel3
             // 
@@ -342,26 +342,26 @@ namespace Q_Solution_Visualizer
             this.flowLayoutPanel1.Size = new System.Drawing.Size(293, 40);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(215, 3);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 28);
+            this.buttonCancel.TabIndex = 9;
+            this.buttonCancel.Text = "İptal";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // buttonAddReplace
             // 
             this.buttonAddReplace.Dock = System.Windows.Forms.DockStyle.Right;
             this.buttonAddReplace.Location = new System.Drawing.Point(49, 3);
             this.buttonAddReplace.Name = "buttonAddReplace";
             this.buttonAddReplace.Size = new System.Drawing.Size(160, 28);
-            this.buttonAddReplace.TabIndex = 6;
+            this.buttonAddReplace.TabIndex = 8;
             this.buttonAddReplace.Text = "Ekle / Değiştir";
             this.buttonAddReplace.UseVisualStyleBackColor = true;
             this.buttonAddReplace.Click += new System.EventHandler(this.buttonAddReplace_Click);
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Location = new System.Drawing.Point(215, 3);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 28);
-            this.buttonCancel.TabIndex = 7;
-            this.buttonCancel.Text = "İptal";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // AddReplaceDialog
             // 

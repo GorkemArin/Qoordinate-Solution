@@ -50,12 +50,12 @@ def ReadBuilding(dataList: List[str]):
         elif data.startswith('point:'):
             pointStr = data.split(':', 1)[1].strip()
             pointList = pointStr.split(',')
-            x = int(pointList[0].strip())
-            y = int(pointList[1].strip())
+            x = float(pointList[0].strip())
+            y = float(pointList[1].strip())
             point = Point(x, y)
         elif data.startswith('need:'):
             needStr = data.split(':', 1)[1].strip()
-            need = int(needStr.strip())
+            need = float(needStr.strip())
     
     buildings.append(Building(point, need, name))
 
@@ -73,12 +73,12 @@ def ReadTeam(dataList: List[str]):
         elif data.startswith('point:'):
             pointStr = data.split(':', 1)[1].strip()
             pointList = pointStr.split(',')
-            x = int(pointList[0].strip())
-            y = int(pointList[1].strip())
+            x = float(pointList[0].strip())
+            y = float(pointList[1].strip())
             point = Point(x, y)
         elif data.startswith('need:'):
             capStr = data.split(':', 1)[1].strip()
-            cap = int(capStr.strip())
+            cap = float(capStr.strip())
     
     teams.append(Team(point, cap, name))
 
@@ -114,7 +114,7 @@ def ReadLine(line: str):
             return
 
 def ReadMap(filename: str) -> Map:
-    filepath = 'Maps\\' + filename
+    filepath = filename
     InitVariables()
 
     with open(filepath, 'r') as file:

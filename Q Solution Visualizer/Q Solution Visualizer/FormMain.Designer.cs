@@ -31,11 +31,14 @@ namespace Q_Solution_Visualizer
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.zedGraphControlMap = new ZedGraph.ZedGraphControl();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listViewBuildingContent = new System.Windows.Forms.ListView();
             this.buttonSaveMap = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.listViewTeamContent = new System.Windows.Forms.ListView();
@@ -47,15 +50,12 @@ namespace Q_Solution_Visualizer
             this.comboBoxMaps = new System.Windows.Forms.ComboBox();
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.buttonSolveMap = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.listViewBuildingContent = new System.Windows.Forms.ListView();
-            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -88,6 +88,17 @@ namespace Q_Solution_Visualizer
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1332, 544);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Location = new System.Drawing.Point(985, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 30);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Çözüm:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
@@ -163,14 +174,39 @@ namespace Q_Solution_Visualizer
             this.tableLayoutPanel2.Size = new System.Drawing.Size(350, 454);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Location = new System.Drawing.Point(3, 202);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 30);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Binalar:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // listViewBuildingContent
+            // 
+            this.listViewBuildingContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewBuildingContent.HideSelection = false;
+            this.listViewBuildingContent.Location = new System.Drawing.Point(3, 235);
+            this.listViewBuildingContent.MultiSelect = false;
+            this.listViewBuildingContent.Name = "listViewBuildingContent";
+            this.listViewBuildingContent.Size = new System.Drawing.Size(344, 136);
+            this.listViewBuildingContent.TabIndex = 15;
+            this.listViewBuildingContent.UseCompatibleStateImageBehavior = false;
+            this.listViewBuildingContent.SelectedIndexChanged += new System.EventHandler(this.listViewBuildingContent_SelectedIndexChanged);
+            // 
             // buttonSaveMap
             // 
+            this.buttonSaveMap.Enabled = false;
             this.buttonSaveMap.Location = new System.Drawing.Point(3, 417);
             this.buttonSaveMap.Name = "buttonSaveMap";
             this.buttonSaveMap.Size = new System.Drawing.Size(237, 30);
             this.buttonSaveMap.TabIndex = 10;
             this.buttonSaveMap.Text = "Harita Kaydet";
             this.buttonSaveMap.UseVisualStyleBackColor = true;
+            this.buttonSaveMap.Click += new System.EventHandler(this.buttonSaveMap_Click);
             // 
             // label3
             // 
@@ -278,17 +314,6 @@ namespace Q_Solution_Visualizer
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.Location = new System.Drawing.Point(985, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 30);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Çözüm:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
@@ -304,6 +329,16 @@ namespace Q_Solution_Visualizer
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(344, 448);
             this.tableLayoutPanel3.TabIndex = 7;
+            // 
+            // listView2
+            // 
+            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(3, 33);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(338, 412);
+            this.listView2.TabIndex = 14;
+            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // flowLayoutPanel2
             // 
@@ -344,39 +379,7 @@ namespace Q_Solution_Visualizer
             this.buttonSolveMap.TabIndex = 13;
             this.buttonSolveMap.Text = "Çöz";
             this.buttonSolveMap.UseVisualStyleBackColor = true;
-            // 
-            // listView2
-            // 
-            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(3, 33);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(338, 412);
-            this.listView2.TabIndex = 14;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
-            // listViewBuildingContent
-            // 
-            this.listViewBuildingContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listViewBuildingContent.HideSelection = false;
-            this.listViewBuildingContent.Location = new System.Drawing.Point(3, 235);
-            this.listViewBuildingContent.MultiSelect = false;
-            this.listViewBuildingContent.Name = "listViewBuildingContent";
-            this.listViewBuildingContent.Size = new System.Drawing.Size(344, 136);
-            this.listViewBuildingContent.TabIndex = 15;
-            this.listViewBuildingContent.UseCompatibleStateImageBehavior = false;
-            this.listViewBuildingContent.SelectedIndexChanged += new System.EventHandler(this.listViewBuildingContent_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Location = new System.Drawing.Point(3, 202);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 30);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Binalar:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSolveMap.Click += new System.EventHandler(this.buttonSolveMap_Click);
             // 
             // FormMain
             // 

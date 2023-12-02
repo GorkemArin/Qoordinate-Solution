@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -134,11 +135,13 @@ namespace Q_Solution_Visualizer
             if (!mapCustomized)
             {
                 mapCustomized = true;
-                customMapSaved = false;
                 comboBoxMaps.Items.Add(".custom.map");
                 mapFilePaths.Add(Path.Combine(selectedDirectory, ".custom.map"));
                 comboBoxMaps.SelectedIndex = comboBoxMaps.Items.Count - 1; //select last item
+                buttonSaveMap.Enabled = true;
             }
+
+            customMapSaved = false;
         }
 
         private bool CheckCustomMapOkToContinue(bool ignoreSelected = false)
@@ -181,7 +184,20 @@ namespace Q_Solution_Visualizer
 
         private void SaveCustomMap()
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Map Dosyası (.map)|*.map";
+            saveFileDialog.InitialDirectory = selectedDirectory;
+            saveFileDialog.ShowDialog();
 
+            string path = saveFileDialog.FileName;
+
+            MapWriter.WriteMap(selectedMap, path);
+            mapCustomized = false;
+            customMapSaved = true;
+            buttonSaveMap.Enabled = false;
+
+            selectedDirectory = Directory.GetParent(path).FullName;
+            ReadMapsFromDirectory();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -268,6 +284,27 @@ namespace Q_Solution_Visualizer
 
             MapCustomized();
             zedFunctions.VisualizeMap(selectedMap);
+        }
+
+        private void buttonSaveMap_Click(object sender, EventArgs e)
+        {
+            if(mapCustomized && !customMapSaved)
+            {
+                SaveCustomMap();
+            }
+        }
+
+        private void buttonSolveMap_Click(object sender, EventArgs e)
+        {
+            string directory = @"C:\gorkemarin\Qoordinate\My Solution\";
+            string pythonfile = Path.Combine(directory, "QSolveProblem.py");
+            string map = Path.Combine(directory, @"Maps\test0.map");
+            string sol = Path.Combine(directory, @"Maps\test0_3.sol");
+            string solver = "BruteForce";
+
+            Process proc = Process.Start("python", String.Format("\"{0}\" \"{1}\" {2} \"{3}\"", pythonfile, map, solver, sol));
+            proc.WaitForExit();
+            TimeSpan time = proc.TotalProcessorTime;
         }
     }
 }

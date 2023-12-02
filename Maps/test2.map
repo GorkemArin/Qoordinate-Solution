@@ -1,0 +1,12 @@
+> map:
+	* mapname: "Test 0"
+
+> buildings:
+	* name: "A" | point: 12, 12 | need: 20
+	* name: "B" | point: 5, 0 | need: 3
+	* name: "C" | point: 17, 4 | need: 4
+	* name: "D" | point: 15, 7 | need: 7
+
+> teams:
+	* name: "team0" | point: 5, 5 | cap: 15
+	* name: "team1" | point: 20, 4 | cap: 4
