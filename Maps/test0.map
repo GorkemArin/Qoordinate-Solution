@@ -1,5 +1,5 @@
 > map:
-    * mapname: "test0"
+    * mapname: "Test 0"
 
 > buildings:
     * name: "A" | point: 12, 12 | need: 20

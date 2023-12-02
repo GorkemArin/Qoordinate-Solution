@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Q_Solution_Visualizer.Maps
 {
-    class Building
+    public class Building
     {
         string name;
         Tuple<double, double> coordinate;

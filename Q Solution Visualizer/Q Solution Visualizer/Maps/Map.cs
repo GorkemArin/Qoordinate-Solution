@@ -63,6 +63,16 @@ namespace Q_Solution_Visualizer.Maps
                 buildingsList.RemoveAt(index);
         }
 
+        public void ReplaceTeamAt(Team newTeam, int index)
+        {
+            teamsList[index] = newTeam;
+        }
+
+        public void ReplaceBuildingAt(Building newBuilding, int index)
+        {
+            buildingsList[index] = newBuilding;
+        }
+
         public void Rename(string name)
         {
             this.mapName = name;
