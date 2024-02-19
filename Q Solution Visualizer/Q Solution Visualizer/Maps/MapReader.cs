@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Q_Solution_Visualizer.Maps
@@ -140,6 +142,7 @@ namespace Q_Solution_Visualizer.Maps
         }
         public static Map ReadMap(string path)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             if (!File.Exists(path))
             {
                 throw new FileNotFoundException($"{path} adresinde bir dosya bulunamadı.");

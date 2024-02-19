@@ -12,6 +12,9 @@ namespace Q_Solution_Visualizer.Maps
         List<Building> buildingsList;
         List<Team> teamsList;
 
+        Dictionary<string, Team> teamDict;
+        Dictionary<string, Building> buildingDict;
+
         public Map(string mapName)
         {
             this.mapName = mapName;
@@ -117,6 +120,38 @@ namespace Q_Solution_Visualizer.Maps
             }
 
             return new double[] { minX, minY, maxX, maxY };
+        }
+
+        public void CreateDictionaries()
+        {
+            teamDict = new Dictionary<string, Team>();
+            buildingDict = new Dictionary<string, Building>();
+
+            foreach (Team team in teamsList)
+            {
+                teamDict.Add(team.GetName(), team);
+            }
+
+            foreach(Building building in buildingsList)
+            {
+                buildingDict.Add(building.GetName(), building);
+            }
+        }
+
+        public Team GetTeamByName(string name)
+        {
+            if (!teamDict.ContainsKey(name))
+                return null;
+
+            return teamDict[name];
+        }
+
+        public Building GetBuildingByName(string name)
+        {
+            if (!buildingDict.ContainsKey(name))
+                return null;
+
+            return buildingDict[name];
         }
 
         public override string ToString()

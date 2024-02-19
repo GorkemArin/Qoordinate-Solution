@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Q_Solution_Visualizer.Maps;
+using Q_Solution_Visualizer.Solutions;
 
 namespace Q_Solution_Visualizer
 {
@@ -12,10 +13,12 @@ namespace Q_Solution_Visualizer
     {
         ListView listViewTeams;
         ListView listViewBuildings;
-        public ListViewFunctions(ListView listViewTeams, ListView listViewBuildings)
+        ListView listViewSolutionOrders;
+        public ListViewFunctions(ListView listViewTeams, ListView listViewBuildings, ListView listViewSolutionOrders)
         {
             this.listViewTeams = listViewTeams;
             this.listViewBuildings = listViewBuildings;
+            this.listViewSolutionOrders = listViewSolutionOrders;
         }
 
         public void InitializeListViewControls()
@@ -27,9 +30,9 @@ namespace Q_Solution_Visualizer
             listViewTeams.Columns.Add("Ekip Adı", -2);
             listViewTeams.Columns.Add("Koordinatı", -2);
             listViewTeams.Columns.Add("Kapasitesi", -2);
-            string[] itemlist = { "ekip1", "(12, 5)", "6" };
-            ListViewItem item = new ListViewItem(itemlist);
-            listViewTeams.Items.Add(item);
+            //string[] itemlist = { "ekip1", "(12, 5)", "6" };
+            //ListViewItem item = new ListViewItem(itemlist);
+            //listViewTeams.Items.Add(item);
 
             listViewBuildings.Clear();
             listViewBuildings.View = View.Details;
@@ -38,9 +41,16 @@ namespace Q_Solution_Visualizer
             listViewBuildings.Columns.Add("Bina Adı", -2);
             listViewBuildings.Columns.Add("Koordinatı", -2);
             listViewBuildings.Columns.Add("İhtiyacı", -2);
-            string[] itemlist2 = { "Bina A", "(10, 0)", "10" };
-            ListViewItem item2 = new ListViewItem(itemlist2);
-            listViewBuildings.Items.Add(item2);
+            //string[] itemlist2 = { "Bina A", "(10, 0)", "10" };
+            //ListViewItem item2 = new ListViewItem(itemlist2);
+            //listViewBuildings.Items.Add(item2);
+
+            listViewSolutionOrders.Clear();
+            listViewSolutionOrders.View = View.Details;
+            listViewSolutionOrders.GridLines = true;
+            listViewSolutionOrders.FullRowSelect = true;
+            listViewSolutionOrders.Columns.Add("Takım Adı", -2);
+            listViewSolutionOrders.Columns.Add("Önerilen Sıralama", -2);
         }
 
         public void ListMapElements(Map map)
@@ -135,6 +145,26 @@ namespace Q_Solution_Visualizer
                 return -1;
 
             return listViewBuildings.SelectedIndices[0];
+        }
+   
+        public void ListSolutionElements(Solution solution)
+        {
+            listViewSolutionOrders.Items.Clear();
+
+            string[] teamNamesArray = solution.GetTeamNames();
+            foreach(string teamName in teamNamesArray)
+            {
+                string[] order = solution.GetOrderByKey(teamName);
+                string orderStr = string.Join(", ", order);
+                string[] itemList = { teamName, orderStr };
+                ListViewItem item = new ListViewItem(itemList);
+                listViewSolutionOrders.Items.Add(item);
+            }
+        }
+    
+        public void ClearSolutionElements()
+        {
+            listViewSolutionOrders.Items.Clear();
         }
     }
 }

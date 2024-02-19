@@ -1,0 +1,51 @@
+<map name="Balli Harita">
+	<building_list>
+		<building name="Arim">
+			<x> 45.89 </x>
+			<y> 12.00 </y>
+		</building>
+		<building name="Balim">
+			<x> 5.00 </x>
+			<y> 7.50 </y>
+		</building>
+		<building name="Petegim">
+			<x> 17.0 </x>
+			<y> 4.33 </y>
+		</building>
+		<building name="Gulum">
+			<x> 17.00 </x>
+			<y> 9.00 </y>
+		</building>
+		<building name="Dalim">
+			<x> 1.70 </x>
+			<y> -0.9 </y>
+		</building>
+		<building name="Cicegim">
+			<x> 5.6 </x>
+			<y> 1.3 </y>
+		</building>
+	</building_list>
+
+	<team_list>
+		<team name="kralice ari">
+			<x> 27.90 </x>
+			<y> -10.00 </y>
+		</team>
+		<team name="ari 1">
+			<x> 5.00 </x>
+			<y> 4.50 </y>
+		</team>
+		<team name="ari 2">
+			<x> 20.1 </x>
+			<y> 3 </y>
+		</team>
+		<team name="ari 3">
+			<x> 14.7 </x>
+			<y> 0.89 </y>
+		</team>
+		<team name="ari 4">
+			<x> 50.76 </x>
+			<y> 20.00 </y>
+		</team>
+	</team_list>
+</map>

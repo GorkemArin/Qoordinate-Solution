@@ -79,6 +79,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Solutions\Solution.cs" />
+    <Compile Include="Solutions\SolutionReader.cs" />
     <Compile Include="ZedGraphFunctions.cs" />
     <EmbeddedResource Include="AddReplaceDialog.resx">
       <DependentUpon>AddReplaceDialog.cs</DependentUpon>

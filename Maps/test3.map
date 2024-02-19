@@ -4,10 +4,20 @@
 > buildings:
 	* name: "A" | point: 12, 12 | need: 20
 	* name: "B" | point: 5, 0 | need: 3
-	* name: "C" | point: 20, 4 | need: 4
+	* name: "C" | point: 20, 8 | need: 4
 	* name: "D" | point: 15, 7 | need: 7
 	* name: "E" | point: 4, 12 | need: 9
+	* name: "F" | point: 14, 7 | need: 4
+	* name: "G" | point: 15, 7 | need: 7
+	* name: "H" | point: 4, 12 | need: 9
+	* name: "I" | point: 35, 7 | need: 4
+	* name: "J" | point: 12, 7 | need: 4
+	* name: "K" | point: 18, 5 | need: 7
+	* name: "L" | point: 0, 1 | need: 9
+	* name: "M" | point: 10, 12 | need: 4
+	* name: "N" | point: 7, 3 | need: 4
 
 > teams:
 	* name: "team0" | point: 5, 5 | cap: 15
 	* name: "team1" | point: 20, 4 | cap: 4
+	* name: "team2" | point: 10, 5 | cap: 15

@@ -1,0 +1,31 @@
+<map name="MapTest">
+	<building_list>
+		<building name="A">
+			<x> 12.00 </x>
+			<y> 12.00 </y>
+		</building>
+		<building name="B">
+			<x> 5.00 </x>
+			<y> 7.50 </y>
+		</building>
+		<building name="C">
+			<x> 17.0 </x>
+			<y> 4.33 </y>
+		</building>
+		<building name="D">
+			<x> 17.00 </x>
+			<y> 9.00 </y>
+		</building>
+	</building_list>
+
+	<team_list>
+		<team name="team0">
+			<x> 5.00 </x>
+			<y> 4.50 </y>
+		</team>
+		<team name="team1">
+			<x> 20.1 </x>
+			<y> 3 </y>
+		</team>
+	</team_list>
+</map>

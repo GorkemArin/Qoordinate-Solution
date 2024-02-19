@@ -5,10 +5,11 @@ from qiskit_optimization.algorithms import MinimumEigenOptimizer
 from qiskit.algorithms.optimizers import COBYLA, SLSQP, ADAM'''
 
 from qiskit_optimization import QuadraticProgram
-from qiskit.algorithms import NumPyMinimumEigensolver
+from qiskit_algorithms.minimum_eigensolvers import NumPyMinimumEigensolver
 from qiskit_optimization.algorithms import MinimumEigenOptimizer
-from qiskit.algorithms.optimizers import ADAM
+from qiskit_algorithms.optimizers import ADAM
 
+import sys
 import itertools
 from QoordinateClasses import Map
 
@@ -50,3 +51,46 @@ def BruteForce(map: Map, teamIndex: int = 0):
 
     print('min name order:', name_order)
     return name_order
+
+def NearestNeighbor(map: Map, teamIndex: int = 0):
+    matrix = map.GetDistanceMatrix(teamIndex)
+    N = matrix.shape[0]
+    visited = [False] * (N - 1)
+    order = []
+    current_index = 0
+    total_distance = 0
+
+    while len(order) < N - 1:
+        #find nearest point from current
+        min_dist = sys.float_info.max
+        min_build_i = -1
+
+        for build_i in range(1, N):
+            if visited[build_i - 1]:
+                continue
+            if min_dist > matrix[current_index, build_i]:
+                min_dist = matrix[current_index, build_i]
+                min_build_i = build_i
+
+        #append the nearest
+        total_distance += min_dist
+        current_index = min_build_i
+        order.append(min_build_i)
+        visited[min_build_i - 1] = True
+
+    print('total distance:', total_distance)
+    names = map.GetBuildingNamesList()
+    name_order = [names[i - 1] for i in order]
+
+    print('min name order:', name_order)
+    return name_order
+
+
+# def Christofides(map: Map, teamIndex: int = 0):
+#     #with Kruskal's for Minimmum Spanning Tree
+
+
+# '''
+# * Generalized name:
+#     "(Monotonically?) Increasing Sequential TSP"
+# '''

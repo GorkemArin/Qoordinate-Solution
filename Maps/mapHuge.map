@@ -1,0 +1,32 @@
+> map:
+	* mapname: "test0"
+
+> buildings:
+	* name: "A" | point: 12, 12 | need: 20
+	* name: "B" | point: 5, 0 | need: 3
+	* name: "C" | point: 20, 8 | need: 4
+	* name: "D" | point: 15, 10 | need: 7
+	* name: "E" | point: 4, 12 | need: 9
+	* name: "F" | point: 14, 7 | need: 4
+	* name: "G" | point: 10, 4 | need: 14
+	* name: "H" | point: 17, 2.5 | need: 4
+	* name: "I" | point: -3, 15 | need: 1
+	* name: "J" | point: 18, 21 | need: 1
+	* name: "K" | point: 12, -4 | need: 1
+	* name: "L" | point: 10, 1 | need: 6
+	* name: "M" | point: -5, 0 | need: 1
+	* name: "N" | point: 0, 0 | need: 12
+	* name: "O" | point: 1.5, 2.4 | need: 6
+	* name: "P" | point: 1, 9 | need: 1
+	* name: "Q" | point: 10, 5 | need: 6
+	* name: "R" | point: -6, 7 | need: 4
+	* name: "S" | point: 3, 12 | need: 8
+
+> teams:
+	* name: "team0" | point: 5, 5 | cap: 15
+	* name: "team1" | point: 20, 4 | cap: 4
+	* name: "team2" | point: 10, 10 | cap: 15
+	* name: "team3" | point: 10, 20 | cap: 7
+	* name: "team4" | point: 0, -7 | cap: 3
+	* name: "team5" | point: -4, 8 | cap: 6
+	* name: "team6" | point: 30, 4 | cap: 8

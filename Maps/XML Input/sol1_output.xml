@@ -1,0 +1,8 @@
+<solution name="MapTest">
+	<team name="team0">
+		<building_order> [A,D,C,B] </building_order>
+	</team>
+	<team name="team1">
+		<building_order> [D,B,C,A] </building_order>
+	</team>
+</solution>

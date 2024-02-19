@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<solution name="Balli Harita">
+   <team name="kralice ari">
+      <building_order>[Petegim,Cicegim,Dalim,Balim,Gulum,Arim]</building_order>
+   </team>
+   <team name="ari 1">
+      <building_order>[Balim,Dalim,Cicegim,Petegim,Gulum,Arim]</building_order>
+   </team>
+   <team name="ari 2">
+      <building_order>[Petegim,Cicegim,Dalim,Balim,Gulum,Arim]</building_order>
+   </team>
+   <team name="ari 3">
+      <building_order>[Cicegim,Dalim,Balim,Petegim,Gulum,Arim]</building_order>
+   </team>
+   <team name="ari 4">
+      <building_order>[Arim,Gulum,Petegim,Balim,Cicegim,Dalim]</building_order>
+   </team>
+</solution>

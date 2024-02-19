@@ -41,6 +41,7 @@ class Map:
         self.teamList = teamList
         self.buildingList = buildingList
         self.buildingsDistanceMatrix = self.__GetBuildingsDistanceMatrix()
+        self.mapname = mapname
 
     #Index 0 is team
     def GetDistanceMatrix(self, teamIndex: int):
@@ -63,3 +64,6 @@ class Map:
     def GetTeamNamesList(self):
         names = [t.name for t in self.teamList]
         return names
+    
+    def GetName(self) -> str :
+        return self.mapname

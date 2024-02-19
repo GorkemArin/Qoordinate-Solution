@@ -51,11 +51,15 @@ namespace Q_Solution_Visualizer
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.listViewAttachments = new System.Windows.Forms.ListView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.listViewOrders = new System.Windows.Forms.ListView();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSolver = new System.Windows.Forms.ComboBox();
             this.buttonSolveMap = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.buttonClearOrders = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -318,38 +322,70 @@ namespace Q_Solution_Visualizer
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.listView2, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.listViewAttachments, 0, 5);
+            this.tableLayoutPanel3.Controls.Add(this.label8, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.listViewOrders, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel2, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label7, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.buttonClearOrders, 0, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(985, 33);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(982, 30);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowCount = 7;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(344, 448);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(350, 454);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
-            // listView2
+            // listViewAttachments
             // 
-            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(3, 33);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(338, 412);
-            this.listView2.TabIndex = 14;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listViewAttachments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewAttachments.HideSelection = false;
+            this.listViewAttachments.Location = new System.Drawing.Point(3, 265);
+            this.listViewAttachments.Name = "listViewAttachments";
+            this.listViewAttachments.Size = new System.Drawing.Size(344, 136);
+            this.listViewAttachments.TabIndex = 17;
+            this.listViewAttachments.UseCompatibleStateImageBehavior = false;
+            this.listViewAttachments.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Location = new System.Drawing.Point(3, 232);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 30);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Ekler:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Visible = false;
+            // 
+            // listViewOrders
+            // 
+            this.listViewOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewOrders.HideSelection = false;
+            this.listViewOrders.Location = new System.Drawing.Point(3, 63);
+            this.listViewOrders.Name = "listViewOrders";
+            this.listViewOrders.Size = new System.Drawing.Size(344, 136);
+            this.listViewOrders.TabIndex = 14;
+            this.listViewOrders.UseCompatibleStateImageBehavior = false;
+            this.listViewOrders.SelectedIndexChanged += new System.EventHandler(this.listViewOrders_SelectedIndexChanged);
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label5);
-            this.flowLayoutPanel2.Controls.Add(this.comboBox2);
+            this.flowLayoutPanel2.Controls.Add(this.comboBoxSolver);
             this.flowLayoutPanel2.Controls.Add(this.buttonSolveMap);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(344, 30);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(350, 30);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // label5
@@ -362,14 +398,18 @@ namespace Q_Solution_Visualizer
             this.label5.Text = "Çözücü:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // comboBox2
+            // comboBoxSolver
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(68, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(179, 24);
-            this.comboBox2.TabIndex = 13;
+            this.comboBoxSolver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSolver.FormattingEnabled = true;
+            this.comboBoxSolver.Items.AddRange(new object[] {
+            "MinimumEigenSolver",
+            "NearestNeighbor",
+            "BruteForce"});
+            this.comboBoxSolver.Location = new System.Drawing.Point(68, 3);
+            this.comboBoxSolver.Name = "comboBoxSolver";
+            this.comboBoxSolver.Size = new System.Drawing.Size(179, 24);
+            this.comboBoxSolver.TabIndex = 13;
             // 
             // buttonSolveMap
             // 
@@ -380,6 +420,27 @@ namespace Q_Solution_Visualizer
             this.buttonSolveMap.Text = "Çöz";
             this.buttonSolveMap.UseVisualStyleBackColor = true;
             this.buttonSolveMap.Click += new System.EventHandler(this.buttonSolveMap_Click);
+            // 
+            // label7
+            // 
+            this.label7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label7.Location = new System.Drawing.Point(3, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 30);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Sıralamalar:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // buttonClearOrders
+            // 
+            this.buttonClearOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClearOrders.Location = new System.Drawing.Point(241, 205);
+            this.buttonClearOrders.Name = "buttonClearOrders";
+            this.buttonClearOrders.Size = new System.Drawing.Size(106, 24);
+            this.buttonClearOrders.TabIndex = 18;
+            this.buttonClearOrders.Text = "Temizle";
+            this.buttonClearOrders.UseVisualStyleBackColor = true;
+            this.buttonClearOrders.Click += new System.EventHandler(this.buttonClearOrders_Click);
             // 
             // FormMain
             // 
@@ -427,11 +488,15 @@ namespace Q_Solution_Visualizer
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listViewBuildingContent;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView listViewOrders;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxSolver;
         private System.Windows.Forms.Button buttonSolveMap;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListView listViewAttachments;
+        private System.Windows.Forms.Button buttonClearOrders;
     }
 }
 

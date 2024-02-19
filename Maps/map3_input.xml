@@ -1,0 +1,59 @@
+<map name="Kalabalik Mahalle">
+	<building_list>
+		<building name="A">
+			<x> 12.00 </x>
+			<y> 12.00 </y>
+		</building>
+		<building name="B">
+			<x> 5.00 </x>
+			<y> 7.50 </y>
+		</building>
+		<building name="C">
+			<x> 17.0 </x>
+			<y> 4.33 </y>
+		</building>
+		<building name="D">
+			<x> 17.00 </x>
+			<y> 9.00 </y>
+		</building>
+		<building name="E">
+			<x> 9.4 </x>
+			<y> 4.5 </y>
+		</building>
+		<building name="F">
+			<x> 8.6 </x>
+			<y> 4.17 </y>
+		</building>
+		<building name="G">
+			<x> 15.91 </x>
+			<y> 14.6 </y>
+		</building>
+		<building name="H">
+			<x> 0.51 </x>
+			<y> -8.5 </y>
+		</building>
+		<building name="I">
+			<x> -0.9 </x>
+			<y> -8.34 </y>
+		</building>
+	</building_list>
+
+	<team_list>
+		<team name="team0">
+			<x> 4.9 </x>
+			<y> -9.0 </y>
+		</team>
+		<team name="team1">
+			<x> 13.5 </x>
+			<y> 20.0 </y>
+		</team>
+		<team name="team2">
+			<x> 14.94 </x>
+			<y> 5.10 </y>
+		</team>
+		<team name="team3">
+			<x> -0.4 </x>
+			<y> -20.5 </y>
+		</team>
+	</team_list>
+</map>

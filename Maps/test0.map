@@ -1,21 +1,39 @@
-> map:
-    * mapname: "Test 0"
+<map>
+	<mapname> Map Test </mapname>
+</map>
 
-> buildings:
-    * name: "A" | point: 12, 12 | need: 20
-    * name: "B" | point: 5, 0 | need: 3
-    * name: "C" | point: 17, 4 | need: 4
-    * name: "D" | point: 15, 7 | need: 7
- #   * name: "E" | point: 4, 12 | need: 9
- #   * name: "F" | point: 0, 9 | need: 14
- #   * name: "G" | point: 2, 20 | need: 3
- #   * name: "H" | point: 30, 5 | need: 10
- #   * name: "I" | point: 5, 16 | need: 14
- #   * name: "J" | point: 2, 19 | need: 3
- #   * name: "K" | point: 14, 3 | need: 10
+<building_list>
+	<building>
+		<name> A </name>
+		<x> 12.00 </x>
+		<y> 12.00 </y>
+	</building>
+	<building>
+		<name> B </name>
+		<x> 5.00 </x>
+		<y> 7.50 </y>
+	</building>
+	<building>
+		<name> C </name>
+		<x> 17.0 </x>
+		<y> 4.33 </y>
+	</building>
+	<building>
+		<name> D </name>
+		<x> 17.00 </x>
+		<y> 9.00 </y>
+	</building>
+</building_list>
 
-> teams:
-    * name: "team0" | point: 5, 5 | cap: 15
-    * name: "team1" | point: 20, 4 | cap: 4
-
-#a comment
+<team_list>
+	<team>
+		<name> team0 </name>
+		<x> 5.00 </x>
+		<y> 4.50 </y>
+	</team>
+	<team>
+		<name> team1 </name>
+		<x> 20.1 </x>
+		<y> 3 </y>
+	</team>
+</team_list>

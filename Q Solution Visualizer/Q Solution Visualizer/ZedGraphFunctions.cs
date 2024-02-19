@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Q_Solution_Visualizer.Maps;
+using Q_Solution_Visualizer.Solutions;
 using ZedGraph;
 
 namespace Q_Solution_Visualizer
@@ -12,6 +13,7 @@ namespace Q_Solution_Visualizer
     class ZedGraphFunctions
     {
         ZedGraphControl zedGraph;
+        readonly Color[] Colors = new Color[]{ Color.Red, Color.YellowGreen, Color.DarkGreen, Color.Blue, Color.DarkBlue, Color.Purple };
         public ZedGraphFunctions (ZedGraphControl zedGraph)
         {
             this.zedGraph = zedGraph;
@@ -125,7 +127,66 @@ namespace Q_Solution_Visualizer
             zedGraph.Refresh();
         }
 
+        public void DrawPathsOfSolutionOrders(Solution solution, Map map)
+        {
+            string[] teamNames = solution.GetTeamNames();
+            map.CreateDictionaries();
+            zedGraph.GraphPane.CurveList.Clear();
 
+            int color_i = 0;
+            foreach (string teamName in teamNames)
+            {
+                string[] order = solution.GetOrderByKey(teamName);
+                Team team = map.GetTeamByName(teamName);
 
+                List<double> xPoints = new List<double>();
+                List<double> yPoints = new List<double>();
+
+                xPoints.Add(team.GetCoordinate().Item1);
+                yPoints.Add(team.GetCoordinate().Item2);
+
+                foreach(string buildName in order)
+                {
+                    Building building = map.GetBuildingByName(buildName);
+                    xPoints.Add(building.GetCoordinate().Item1);
+                    yPoints.Add(building.GetCoordinate().Item2);
+                }
+
+                zedGraph.GraphPane.AddCurve(team.GetName(), xPoints.ToArray(), yPoints.ToArray(), Colors[color_i]);
+
+                color_i++;
+                if (color_i == Colors.Length)
+                    color_i = 0;
+            }
+
+            zedGraph.Refresh();
+        }
+
+        public void ShowOnlyPathByIndices(int[] indices)
+        {
+            if(indices.Length == 0)
+            {
+                for (int i = 0; i < zedGraph.GraphPane.CurveList.Count; i++)
+                {
+                    zedGraph.GraphPane.CurveList[i].IsVisible = true;
+                }
+
+                zedGraph.Refresh();
+                return;
+            }
+
+            for(int i = 0; i < zedGraph.GraphPane.CurveList.Count; i++)
+            {
+                zedGraph.GraphPane.CurveList[i].IsVisible = indices.Contains(i);
+            }
+
+            zedGraph.Refresh();
+        }
+
+        public void ClearPaths()
+        {
+            zedGraph.GraphPane.CurveList.Clear();
+            zedGraph.Refresh();
+        }
     }
 }

@@ -1,0 +1,31 @@
+<map name="Harita Deneme">
+	<building_list>
+		<building name="Cicek">
+			<x> -12.82 </x>
+			<y> -6.07 </y>
+		</building>
+		<building name="Menevis">
+			<x> 5.00 </x>
+			<y> 7.50 </y>
+		</building>
+		<building name="Kerim">
+			<x> 9.45 </x>
+			<y> 6.70 </y>
+		</building>
+		<building name="Defne">
+			<x> 5.37 </x>
+			<y> -1.04 </y>
+		</building>
+	</building_list>
+
+	<team_list>
+		<team name="acayip ekip">
+			<x> 1.45 </x>
+			<y> 14.90 </y>
+		</team>
+		<team name="atik ekip">
+			<x> 14.78 </x>
+			<y> 0.004 </y>
+		</team>
+	</team_list>
+</map>

@@ -1,5 +1,6 @@
 from qiskit_optimization.algorithms import MinimumEigenOptimizationResult
 from QMain import Map
+from dimod import SampleSet
 
 def GetListOfOrder(solution: MinimumEigenOptimizationResult, map: Map):
 	buildings = map.GetBuildingNamesList()
@@ -8,9 +9,9 @@ def GetListOfOrder(solution: MinimumEigenOptimizationResult, map: Map):
 	N = len(buildings)
 	if N * N != len(x):
 		raise Exception('Solution and map don\'t match')
-	
+
 	order = [None] * N
-	
+
 	for b in range(N):
 		for t in range(N):
 			if x[b * 4 + t] == 1:
@@ -18,7 +19,15 @@ def GetListOfOrder(solution: MinimumEigenOptimizationResult, map: Map):
 				break
 			if(t == N - 1):
 				raise Exception(f'Invalid solution: Building {buildings[b]} never visited.')
-	
+
 	print('lowest value:', solution.fval)
 	print(order)
 	return order
+
+def GetListOfOrder(solution: SampleSet, map: Map):
+	buildings = map.GetBuildingNamesList()
+	sample = solution.samples()[0]
+	# energy = SampleSet.
+	print('solution: ', sample)
+	# print('energy: ', energy)
+

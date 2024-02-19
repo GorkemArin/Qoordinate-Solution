@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<solution name="Harita Deneme">
+   <team name="acayip ekip">
+      <building_order>[Menevis,Kerim,Defne,Cicek]</building_order>
+   </team>
+   <team name="atik ekip">
+      <building_order>[Kerim,Menevis,Defne,Cicek]</building_order>
+   </team>
+</solution>

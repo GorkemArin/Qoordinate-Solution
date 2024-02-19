@@ -26,9 +26,16 @@ if __name__ == "__main__":
             model = problem.GetQuadraticProblemModel('my problem')
             solution = SolveWithNumPyMinimumEigensolver(model)
             solutionsForTeam.append(GetListOfOrder(solution, myMap))
+    elif solver == 'DWaveQuantum':
+        for i in range(len(myMap.teamList)):
+            #TODO
+            pass
     elif solver == 'BruteForce':
         for i in range(len(myMap.teamList)):
             solutionsForTeam.append(BruteForce(myMap, i))
+    elif solver == 'NearestNeighbor':
+        for i in range(len(myMap.teamList)):
+            solutionsForTeam.append(NearestNeighbor(myMap, i))
     
     WriteSolution(myMap, solutionsForTeam, outputPath)
 

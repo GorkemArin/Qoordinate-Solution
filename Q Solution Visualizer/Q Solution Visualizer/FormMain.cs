@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Q_Solution_Visualizer.Maps;
-
+using Q_Solution_Visualizer.Solutions;
 
 namespace Q_Solution_Visualizer
 {
@@ -22,11 +22,11 @@ namespace Q_Solution_Visualizer
         {
             InitializeComponent();
             zedFunctions = new ZedGraphFunctions(zedGraphControlMap);
-            listViewFunctions = new ListViewFunctions(listViewTeamContent, listViewBuildingContent);
+            listViewFunctions = new ListViewFunctions(listViewTeamContent, listViewBuildingContent, listViewOrders);
 
             listViewFunctions.InitializeListViewControls();
-
             selectedDirectory = Properties.Settings.Default.MapAdress;
+            comboBoxSolver.SelectedIndex = 0;
 
             if(selectedDirectory != "" && Directory.Exists(selectedDirectory))
                 ReadMapsFromDirectory();
@@ -37,6 +37,7 @@ namespace Q_Solution_Visualizer
         List<string> mapFilePaths;
 
         Map selectedMap;
+        Solution selectedSolution;
         bool mapCustomized = false;
         bool customMapSaved = false;
 
@@ -58,7 +59,20 @@ namespace Q_Solution_Visualizer
             ReadMapsFromDirectory();
         }
 
-        private void ReadMapsFromDirectory(bool checkEmpty = true)
+        private int findObject(ComboBox.ObjectCollection collection, object obj)
+        {
+            string key = obj.ToString();
+            for(int i = 0; i < collection.Count; i++)
+            {
+                if(collection[i].ToString() == key)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        private void ReadMapsFromDirectory(bool checkEmpty = true, object setSelected = null)
         {
             mapFilePaths = ListMapFilesInFolder(selectedDirectory);
 
@@ -70,7 +84,17 @@ namespace Q_Solution_Visualizer
 
             if (comboBoxMaps.Items.Count > 0)
             {
-                comboBoxMaps.SelectedIndex = 0;
+                if(setSelected != null)
+                {
+                    int index = findObject(comboBoxMaps.Items, setSelected);
+                    if (index != -1)
+                        comboBoxMaps.SelectedIndex = index;
+                    else
+                        comboBoxMaps.SelectedIndex = 0;
+                }
+                else 
+                    comboBoxMaps.SelectedIndex = 0;
+
                 Properties.Settings.Default.MapAdress = selectedDirectory;
                 Properties.Settings.Default.Save();
             }
@@ -182,14 +206,22 @@ namespace Q_Solution_Visualizer
             return true;
         }
 
-        private void SaveCustomMap()
+        private void SaveCustomMap(bool dialogOff = false)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Map Dosyası (.map)|*.map";
-            saveFileDialog.InitialDirectory = selectedDirectory;
-            saveFileDialog.ShowDialog();
+            string path;
 
-            string path = saveFileDialog.FileName;
+            if (!dialogOff)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Map Dosyası (.map)|*.map";
+                saveFileDialog.InitialDirectory = selectedDirectory;
+                saveFileDialog.ShowDialog();
+                path = saveFileDialog.FileName;
+            }
+            else
+            {
+                path = Path.Combine(selectedDirectory, comboBoxMaps.SelectedItem.ToString());
+            }
 
             MapWriter.WriteMap(selectedMap, path);
             mapCustomized = false;
@@ -197,7 +229,7 @@ namespace Q_Solution_Visualizer
             buttonSaveMap.Enabled = false;
 
             selectedDirectory = Directory.GetParent(path).FullName;
-            ReadMapsFromDirectory();
+            ReadMapsFromDirectory(setSelected: Path.GetFileName(path));
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -298,13 +330,41 @@ namespace Q_Solution_Visualizer
         {
             string directory = @"C:\gorkemarin\Qoordinate\My Solution\";
             string pythonfile = Path.Combine(directory, "QSolveProblem.py");
-            string map = Path.Combine(directory, @"Maps\test0.map");
-            string sol = Path.Combine(directory, @"Maps\test0_3.sol");
-            string solver = "BruteForce";
+
+            if(mapCustomized && !customMapSaved)
+            {
+                SaveCustomMap(dialogOff: true);
+            }
+            string mapName = comboBoxMaps.SelectedItem.ToString();
+            string solutionName = Path.GetFileNameWithoutExtension(mapName) + DateTime.Now.ToString("_yyMMdd_HHmmss") + ".sol";
+
+            string map = Path.Combine(selectedDirectory, mapName);
+            string sol = Path.Combine(selectedDirectory, solutionName);
+            string solver = comboBoxSolver.SelectedItem.ToString();
 
             Process proc = Process.Start("python", String.Format("\"{0}\" \"{1}\" {2} \"{3}\"", pythonfile, map, solver, sol));
             proc.WaitForExit();
             TimeSpan time = proc.TotalProcessorTime;
+
+            if (!File.Exists(sol))
+            {
+                return;
+            }
+
+            selectedSolution = SolutionReader.ReadSolution(sol);
+            listViewFunctions.ListSolutionElements(selectedSolution);
+            zedFunctions.DrawPathsOfSolutionOrders(selectedSolution, selectedMap);
+        }
+
+        private void listViewOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            zedFunctions.ShowOnlyPathByIndices(listViewOrders.SelectedIndices.Cast<int>().ToList().ToArray());
+        }
+
+        private void buttonClearOrders_Click(object sender, EventArgs e)
+        {
+            listViewFunctions.ClearSolutionElements();
+            zedFunctions.ClearPaths();
         }
     }
 }

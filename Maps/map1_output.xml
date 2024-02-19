@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<solution name="MapTest">
+   <team name="team0">
+      <building_order>[B,A,D,C]</building_order>
+   </team>
+   <team name="team1">
+      <building_order>[C,D,A,B]</building_order>
+   </team>
+</solution>

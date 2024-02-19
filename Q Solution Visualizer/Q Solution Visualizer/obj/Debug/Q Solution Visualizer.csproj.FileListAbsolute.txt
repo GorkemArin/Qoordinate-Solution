@@ -8,6 +8,5 @@ C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer
 C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q Solution Visualizer.csproj.CoreCompileInputs.cache
 C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q Solution Visualizer.exe
 C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q Solution Visualizer.pdb
-C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\bin\Debug\ZedGraph.xml
 C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q Solution Visualizer.csproj.CopyComplete
 C:\gorkemarin\Qoordinate\My Solution\Q Solution Visualizer\Q Solution Visualizer\obj\Debug\Q_Solution_Visualizer.AddReplaceDialog.resources

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<solution name="Kalabalik Mahalle">
+   <team name="team0">
+      <building_order>[H,I,F,E,B,A,G,D,C]</building_order>
+   </team>
+   <team name="team1">
+      <building_order>[G,A,D,C,E,F,B,H,I]</building_order>
+   </team>
+   <team name="team2">
+      <building_order>[C,D,G,A,B,E,F,H,I]</building_order>
+   </team>
+   <team name="team3">
+      <building_order>[I,H,F,E,B,A,G,D,C]</building_order>
+   </team>
+</solution>

@@ -1,13 +1,7 @@
-import numpy as np
+from dimod import BinaryQuadraticModel
+from QoordinateClasses import *
 
-from qiskit_optimization import QuadraticProgram
-#from qiskit import BasicAer, Aer
-#from qiskit.algorithms import QAOA, NumPyMinimumEigensolver
-#from qiskit_optimization.algorithms import MinimumEigenOptimizer
-#from qiskit.algorithms.optimizers import COBYLA, SLSQP, ADAM
-
-class QQuadraticProblem:
-
+class DWaveQuadraticProblem:
     def __init__(self, distanceMatrix: np.ndarray):
         if distanceMatrix.ndim != 2:
             raise Exception('Wrong dimensions. 2 is required')
@@ -48,27 +42,34 @@ class QQuadraticProblem:
 
         return quadratic
 
-    def __SetConstraintsOf(self, mod: QuadraticProgram, binaries):
+    def __SetConstraintsOf(self, model: BinaryQuadraticModel, binaries):
         for i in range(self.N-1):
-            linearRow = {}
-            linearColumn = {}
+            linearRow = []
+            linearColumn = []
             for j in range(self.N-1):
-                linearRow.update({binaries[i][j] : 1})
-                linearColumn.update({binaries[j][i] : 1})
-            mod.linear_constraint(linearRow, sense='=', rhs=1)
-            mod.linear_constraint(linearColumn, sense='=', rhs=1)
-        return mod
+                linearRow.append((binaries[i][j], 1))
+                linearColumn.append((binaries[j][i], 1))
+            model.add_linear_equality_constraint(linearRow, 100, -1)
+            model.add_linear_equality_constraint(linearColumn, 100, -1)
 
-    def GetQuadraticProblemModel(self, name = '', prettyprint = True):
-        model = QuadraticProgram(name)
+            ## exmp: constraint: x11 + x12 + x13 - 1 = 0
+
+        return model
+
+    def CreateBQMfromMap(self, name = '', prettyprint = True) -> BinaryQuadraticModel:
+        model = BinaryQuadraticModel(vartype = 'BINARY')
         binaries, list = self.__CreateBinariesMatrix()
         linear = self.__GetLinear(binaries)
         quadratic = self.__GetQuadratic(binaries)
-        model.binary_var_list(list)
-        model.minimize(constant = 0, linear = linear, quadratic = quadratic)
+
+        model.add_linear_from(linear)
+        model.add_quadratic_from(quadratic)
+        
+        #model.binary_var_list(list)
+        #model.minimize(constant = 0, linear = linear, quadratic = quadratic)
         self.__SetConstraintsOf(model, binaries)
 
         if(prettyprint):
-            print(model.prettyprint())
+            print(model)
 
         return model
