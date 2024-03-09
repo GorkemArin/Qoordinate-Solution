@@ -10,7 +10,13 @@ from MapReader import ReadMap
 from SolutionWriter import WriteSolution
 
 if __name__ == '__main__':
-    myMap = ReadMap('Maps\\test3.map')    
+    myMap = ReadMap('Maps\\test3.map')
+
+    problem = DWaveQuadraticProblem(myMap.GetDistanceMatrix(0))
+    bqmModel = problem.CreateBQMfromMap('TPS test')
+    solution = SolveDWaveProblem(bqmModel, 'hybrid', 'TPS Hybrid Qoordinate')
+    GetListOfOrder(solution, myMap)
+    
     # problem = QQuadraticProblem(myMap.GetDistanceMatrix(0))
     # model = problem.GetQuadraticProblemModel('my problem')
     # solution = SolveWithNumPyMinimumEigensolver(model)
@@ -24,7 +30,4 @@ if __name__ == '__main__':
     # print('Brute Force Solution:')
     # NearestNeighbor(myMap, 0)
 
-    problem = DWaveQuadraticProblem(myMap.GetDistanceMatrix(0))
-    bqmModel = problem.CreateBQMfromMap('TPS test')
-    solution = SolveDWaveProblem(bqmModel, 'hybrid', 'TPS Hybrid Qoordinate')
-    GetListOfOrder(solution, myMap)
+    
